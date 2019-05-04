@@ -35,6 +35,7 @@ router.get("/", (req, res, next) => {
 
 router.post("/", (req, res, next) => {
   Product.findById(req.body.productId)
+  .exec()
     .then(product => {
       if (!product) {
         return res.status(404).json({
